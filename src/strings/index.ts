@@ -6,13 +6,15 @@
  * */
 
 export const STRINGS = {
-  WELCOME: 'WELCOME'
+  WELCOME: 'WELCOME',
+  ADD_SUCCESS: 'ADD_SUCCESS'
 };
 
 export default {
   en: {
     translation: {
       [STRINGS.WELCOME]: 'Welcome, you can say Hello or Help. Which would you like to try?',
+      [STRINGS.ADD_SUCCESS]: 'Ok! Added the movie MOVIE, from the YEAR, to your watchlist'
     }
   },
   es: {
