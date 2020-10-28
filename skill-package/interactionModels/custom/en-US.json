@@ -29,10 +29,15 @@
             {
               "name": "movie",
               "type": "AMAZON.Movie"
+            },
+            {
+              "name": "date",
+              "type": "AMAZON.DATE"
             }
           ],
           "samples": [
             "add the movie {movie}",
+            "add the movie {movie} {date}",
             "add movie {movie}",
             "to find {movie}",
             "to find the movie {movie}"
