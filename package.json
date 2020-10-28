@@ -4,7 +4,7 @@
   "description": "A small Alexa skill for adding items to your Trakt watchlist. Account linking is handled by the Alexa system",
   "main": "app.ts",
   "scripts": {
-    "debug": "nodemon ./app.ts",
+    "debug": "nodemon -r dotenv/config ./app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Justin Vanderhooft",
@@ -24,7 +24,9 @@
     "ask-sdk-core": "^2.10.1",
     "ask-sdk-express-adapter": "2.0.1",
     "ask-sdk-model": "^1.33.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "got": "^11.8.0",
     "i18next": "^19.8.3",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
