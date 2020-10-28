@@ -2,8 +2,9 @@ import * as Alexa from 'ask-sdk';
 import { ExpressAdapter } from 'ask-sdk-express-adapter';
 import express from 'express';
 
-import LaunchRequestHandler from './handlers/LaunchRequestHandler';
-import LocalisationRequestInterceptor from './handlers/LocalisationRequestInterceptor';
+import AddItemToWatchlistIntentHandler from './src/handlers/AddItemToWatchlistIntentHandler';
+import LaunchRequestHandler from './src/handlers/LaunchRequestHandler';
+import LocalisationRequestInterceptor from './src/handlers/LocalisationRequestInterceptor';
 
 const app = express();
 
@@ -15,6 +16,7 @@ const skillBuilder = Alexa.SkillBuilders
     LocalisationRequestInterceptor
   )
   .addRequestHandlers(
+    AddItemToWatchlistIntentHandler,
     LaunchRequestHandler
   );
 const skill = skillBuilder.create();
