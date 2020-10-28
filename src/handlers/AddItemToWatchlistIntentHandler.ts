@@ -44,7 +44,7 @@ export default {
     }
 
     // TODO handle some sort of slot-less error state
-    const speakOutput = handlerInput.t(STRINGS.ADD_SUCCESS).replace('MOVIE', movie.title).replace('YEAR', movie.year);
+    const speakOutput = handlerInput.t(STRINGS.ADD_SUCCESS).replace('MOVIE', mediaItem.title).replace('YEAR', mediaItem.year);
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
