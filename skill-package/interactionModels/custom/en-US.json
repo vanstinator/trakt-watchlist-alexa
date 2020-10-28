@@ -37,10 +37,17 @@
           ],
           "samples": [
             "add the movie {movie}",
-            "add the movie {movie} {date}",
             "add movie {movie}",
             "to find {movie}",
-            "to find the movie {movie}"
+            "to find the movie {movie}",
+            "add the movie {movie} from {date}",
+            "add the movie {movie} that came out {date}",
+            "add movie {movie} from {date}",
+            "add movie {movie} from that came out {date}",
+            "to find {movie} from {date}",
+            "to find {movie} from that came out {date}",
+            "to find the movie {movie} from that came out {date}",
+            "to find the movie {movie} from {date}"
           ]
         }
       ],
