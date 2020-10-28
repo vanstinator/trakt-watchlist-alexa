@@ -2,6 +2,7 @@ import * as Alexa from 'ask-sdk';
 import { Response } from 'ask-sdk-model';
 
 import { SLOTS } from '../constants/slots';
+import { authenticatedClient } from '../services/got';
 import { STRINGS } from '../strings';
 import { HandlerInput } from '../types/alexa';
 import { TraktMovieSearchResponse } from '../types/trakt';
@@ -23,26 +24,13 @@ export default {
       console.log(token);
 
       try {
-        const searchResponse = await got(`https://api.trakt.tv/search/movie?query=${slot}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'trakt-api-version': '2',
-            'trakt-api-key': process.env.TRAKT_CLIENT,
-            Authorization: `Bearer ${token}`
-          }
-        }).json<TraktMovieSearchResponse[]>();
+        const searchResponse = await authenticatedClient(token)(`https://api.trakt.tv/search/movie?query=${movieSlot}`).json<TraktMovieSearchResponse[]>();
 
         movie = searchResponse[0].movie;
 
         console.log(`Adding ${JSON.stringify(movie, null, 2)} to watchlist`);
 
-        await got('https://api.trakt.tv/sync/watchlist', {
-          headers: {
-            'Content-Type': 'application/json',
-            'trakt-api-version': '2',
-            'trakt-api-key': process.env.TRAKT_CLIENT,
-            Authorization: `Bearer ${token}`
-          },
+        await authenticatedClient(token)('https://api.trakt.tv/sync/watchlist', {
           body: JSON.stringify({
             movies: [movie]
           }),
