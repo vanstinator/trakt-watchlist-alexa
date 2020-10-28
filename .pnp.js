@@ -41,10 +41,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.5"],
             ["@typescript-eslint/eslint-plugin", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:4.6.0"],
             ["@typescript-eslint/parser", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:4.6.0"],
+            ["amazon-date-parser", "npm:0.3.0"],
             ["ask-sdk", "npm:2.10.0"],
             ["ask-sdk-core", "virtual:0c2a51aff65a1d049fa690b2465833b7a10a7aa803448a1459eb662085b4fbc0ca50b6dd67206ced0211227db500ecaa2ec74fca876ffc2d3569cc54e11f9448#npm:2.10.1"],
             ["ask-sdk-express-adapter", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:2.0.1"],
             ["ask-sdk-model", "npm:1.33.1"],
+            ["date-fns", "npm:2.16.1"],
             ["dotenv", "npm:8.2.0"],
             ["eslint", "npm:7.12.1"],
             ["eslint-config-prettier", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:6.15.0"],
@@ -532,6 +534,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fast-json-stable-stringify", "npm:2.1.0"],
             ["json-schema-traverse", "npm:0.4.1"],
             ["uri-js", "npm:4.4.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["amazon-date-parser", [
+        ["npm:0.3.0", {
+          "packageLocation": "./.yarn/cache/amazon-date-parser-npm-0.3.0-50ddbbfea2-7e4214dab6.zip/node_modules/amazon-date-parser/",
+          "packageDependencies": [
+            ["amazon-date-parser", "npm:0.3.0"]
           ],
           "linkType": "HARD",
         }]
@@ -1281,6 +1292,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["dashdash", "npm:1.14.1"],
             ["assert-plus", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["date-fns", [
+        ["npm:2.16.1", {
+          "packageLocation": "./.yarn/cache/date-fns-npm-2.16.1-2f082a8b35-fbe5d9aa1d.zip/node_modules/date-fns/",
+          "packageDependencies": [
+            ["date-fns", "npm:2.16.1"]
           ],
           "linkType": "HARD",
         }]
@@ -4503,10 +4523,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.5"],
             ["@typescript-eslint/eslint-plugin", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:4.6.0"],
             ["@typescript-eslint/parser", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:4.6.0"],
+            ["amazon-date-parser", "npm:0.3.0"],
             ["ask-sdk", "npm:2.10.0"],
             ["ask-sdk-core", "virtual:0c2a51aff65a1d049fa690b2465833b7a10a7aa803448a1459eb662085b4fbc0ca50b6dd67206ced0211227db500ecaa2ec74fca876ffc2d3569cc54e11f9448#npm:2.10.1"],
             ["ask-sdk-express-adapter", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:2.0.1"],
             ["ask-sdk-model", "npm:1.33.1"],
+            ["date-fns", "npm:2.16.1"],
             ["dotenv", "npm:8.2.0"],
             ["eslint", "npm:7.12.1"],
             ["eslint-config-prettier", "virtual:e6f8ce2c7c0f4fc70eec9a9fcd1894e7c74cb70d9a8baf701fc4c05a5aa62cc795a4c29573d57155f9656a5274f1e66c8c20459e6871e9a42b50e391c449f4ec#npm:6.15.0"],

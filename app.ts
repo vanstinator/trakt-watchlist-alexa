@@ -19,6 +19,7 @@ const skillBuilder = Alexa.SkillBuilders
     AddItemToWatchlistIntentHandler,
     LaunchRequestHandler
   );
+
 const skill = skillBuilder.create();
 
 const adapter = new ExpressAdapter(skill, true, true);
