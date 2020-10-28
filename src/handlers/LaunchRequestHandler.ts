@@ -1,13 +1,16 @@
 import * as Alexa from 'ask-sdk';
+import { Response } from 'ask-sdk-model';
 
 import { STRINGS } from '../strings';
+import { HandlerInput } from '../types/alexa';
 
 export default {
-  // TODO find the correct type
-  canHandle(handlerInput): boolean {
+
+  canHandle(handlerInput: HandlerInput): boolean {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
   },
-  handle(handlerInput) {
+
+  handle(handlerInput: HandlerInput): Response {
     const speakOutput = handlerInput.t(STRINGS.WELCOME);
 
     return handlerInput.responseBuilder

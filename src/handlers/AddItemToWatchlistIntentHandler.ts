@@ -1,19 +1,19 @@
 import * as Alexa from 'ask-sdk';
-import got from 'got';
+import { Response } from 'ask-sdk-model';
 
 import { SLOTS } from '../constants/slots';
 import { STRINGS } from '../strings';
+import { HandlerInput } from '../types/alexa';
 import { TraktMovieSearchResponse } from '../types/trakt';
 
 export default {
-  // TODO find the correct type
-  canHandle(handlerInput): boolean {
+  canHandle(handlerInput: HandlerInput): boolean {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
       && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AddItemToWatchlistIntent';
   },
   async handle(handlerInput) {
 
-    let movie;
+  async handle(handlerInput: HandlerInput): Promise<Response> {
 
     const slot = Alexa.getSlotValue(handlerInput.requestEnvelope, SLOTS.MOVIE);
 
