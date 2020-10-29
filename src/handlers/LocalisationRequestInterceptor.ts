@@ -8,8 +8,6 @@ import { HandlerInput } from '../types/alexa';
 export default {
   async process(handlerInput: HandlerInput): Promise<void> {
 
-    console.log(`Incoming intent ${JSON.stringify(handlerInput.requestEnvelope, null, 2)}`);
-
     const t = await i18next.init({
       lng: Alexa.getLocale(handlerInput.requestEnvelope),
       resources: languageStrings
