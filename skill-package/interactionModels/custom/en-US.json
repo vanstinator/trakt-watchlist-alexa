@@ -28,14 +28,32 @@
           "slots": [
             {
               "name": "movie",
-              "type": "AMAZON.Movie"
+              "type": "AMAZON.Movie",
+              "samples": [
+                "{movie}"
+              ]
             },
             {
               "name": "date",
               "type": "AMAZON.DATE"
+            },
+            {
+              "name": "director",
+              "type": "AMAZON.Director"
+            },
+            {
+              "name": "actor",
+              "type": "AMAZON.Actor"
+            },
+            {
+              "name": "timeSeries",
+              "type": "CUSTOM_TimeSeries"
             }
           ],
           "samples": [
+            "add the movie from the {timeSeries}",
+            "add the movie {movie} by {director}",
+            "add the movie {movie} with {actor} ",
             "add the movie {movie}",
             "add movie {movie}",
             "to find {movie}",
@@ -51,13 +69,175 @@
           ]
         }
       ],
-      "types": [],
+      "types": [
+        {
+          "values": [
+            {
+              "id": "2020",
+              "name": {
+                "value": "twenty twenties",
+                "synonyms": [
+                  "two thousand twenties"
+                ]
+              }
+            },
+            {
+              "id": "2010",
+              "name": {
+                "value": "twenty tens",
+                "synonyms": [
+                  "two thousand tens"
+                ]
+              }
+            },
+            {
+              "id": "2000",
+              "name": {
+                "value": "two thousands"
+              }
+            },
+            {
+              "id": "1990",
+              "name": {
+                "value": "nineties",
+                "synonyms": [
+                  "nineteen nineties "
+                ]
+              }
+            },
+            {
+              "id": "1980",
+              "name": {
+                "value": "eighties",
+                "synonyms": [
+                  "nineteen eighties"
+                ]
+              }
+            },
+            {
+              "id": "1970",
+              "name": {
+                "value": "seventies",
+                "synonyms": [
+                  "nineteen seventies"
+                ]
+              }
+            },
+            {
+              "id": "1960",
+              "name": {
+                "value": "sixties",
+                "synonyms": [
+                  "nineteen sixties"
+                ]
+              }
+            },
+            {
+              "id": "1950",
+              "name": {
+                "value": "fifties",
+                "synonyms": [
+                  "nineteen fifties"
+                ]
+              }
+            },
+            {
+              "id": "1940",
+              "name": {
+                "value": "forties",
+                "synonyms": [
+                  "nineteen forties"
+                ]
+              }
+            },
+            {
+              "id": "1930",
+              "name": {
+                "value": "thirties",
+                "synonyms": [
+                  "nineteen thirties"
+                ]
+              }
+            },
+            {
+              "id": "1920",
+              "name": {
+                "value": "twenties",
+                "synonyms": [
+                  "nineteen twenties"
+                ]
+              }
+            }
+          ],
+          "name": "CUSTOM_TimeSeries"
+        }
+      ],
       "modelConfiguration": {
         "fallbackIntentSensitivity": {
           "level": "LOW"
         }
       }
-    }
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "AddItemToWatchlistIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "movie",
+              "type": "AMAZON.Movie",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1350303020131.790338467356"
+              }
+            },
+            {
+              "name": "date",
+              "type": "AMAZON.DATE",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "director",
+              "type": "AMAZON.Director",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "actor",
+              "type": "AMAZON.Actor",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            },
+            {
+              "name": "timeSeries",
+              "type": "CUSTOM_TimeSeries",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1350303020131.790338467356",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "what\u0027s the title of the item you want to add?"
+          }
+        ]
+      }
+    ]
   },
-  "version": "3"
+  "version": "13"
 }

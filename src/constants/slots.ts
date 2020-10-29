@@ -1,4 +1,5 @@
 export enum SLOTS {
   DATE = 'date',
-  MOVIE = 'movie'
+  MOVIE = 'movie',
+  TIME_SERIES = 'timeSeries'
 }

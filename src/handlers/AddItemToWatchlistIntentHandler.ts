@@ -1,7 +1,6 @@
 import AmazonDateParser from 'amazon-date-parser';
 import * as Alexa from 'ask-sdk';
 import { Response } from 'ask-sdk-model';
-import { parse } from 'date-fns';
 
 import { SLOTS } from '../constants/slots';
 import { authenticatedClient } from '../services/got';
@@ -20,27 +19,29 @@ export default {
 
     const token = Alexa.getAccountLinkingAccessToken(handlerInput.requestEnvelope);
 
-    const movieSlot = Alexa.getSlotValue(handlerInput.requestEnvelope, SLOTS.MOVIE);
     const dateSlot = Alexa.getSlotValue(handlerInput.requestEnvelope, SLOTS.DATE);
+    const movieSlot = Alexa.getSlotValue(handlerInput.requestEnvelope, SLOTS.MOVIE);
+    const timeSeriesSlot = Alexa.getSlot(handlerInput.requestEnvelope, SLOTS.TIME_SERIES).resolutions?.resolutionsPerAuthority?.[0].values[0].value.name;
 
     let mediaItem;
     if (movieSlot) {
       console.log(movieSlot);
       console.log(dateSlot);
+      console.log(timeSeriesSlot);
       console.log(token);
 
       try {
 
         const searchResponse = await authenticatedClient(token)(`https://api.trakt.tv/search/movie?query=${movieSlot}`).json<TraktMovieSearchResponse[]>();
 
-        if (dateSlot) {
+        if (dateSlot || timeSeriesSlot) {
           console.log('we got a date in our utterance. lets match the closest movie');
           const isYear = new RegExp(/^\d{4}$/).test(dateSlot);
 
           let year;
           if (isYear) {
             year = dateSlot;
-          } else {
+          } else if (dateSlot) {
             // First parse a useable date
             const date: { startDate: Date, endDate: Date } = new AmazonDateParser(dateSlot);
             year = date.startDate.getFullYear;
@@ -48,10 +49,13 @@ export default {
 
           // Look for an exact date match
           mediaItem = searchResponse.filter(item => `${item.movie.year}` === year)?.[0]?.movie;
-          // Lets find the closest match
-          // if (!mediaItem) {
-          // TODO lets do some number comparisons to find the closest year match
-          // }
+
+          // Otherwise zoom out to the decade of the request
+          if (!mediaItem) {
+            const startYear = parseInt(`${(year || timeSeriesSlot).slice(0, 3)}0`);
+            const endYear = startYear + 10;
+            mediaItem = searchResponse.filter(item => item.movie.year <= endYear && item.movie.year >= startYear)?.[0].movie;
+          }
 
         }
 
