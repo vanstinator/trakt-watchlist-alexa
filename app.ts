@@ -6,9 +6,9 @@ import AddItemToWatchlistIntentHandler from './src/handlers/AddItemToWatchlistIn
 import LaunchRequestHandler from './src/handlers/LaunchRequestHandler';
 import LocalisationRequestInterceptor from './src/handlers/LocalisationRequestInterceptor';
 
-const app = express();
+const port = process.env.PORT || 3000;
 
-const port = 3000;
+const app = express();
 
 const skillBuilder = Alexa.SkillBuilders
   .custom()

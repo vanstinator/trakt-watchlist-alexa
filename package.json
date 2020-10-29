@@ -4,6 +4,7 @@
   "description": "A small Alexa skill for adding items to your Trakt watchlist. Account linking is handled by the Alexa system",
   "main": "app.ts",
   "scripts": {
+    "start": "ts-node-transpile-only ./app.ts",
     "debug": "nodemon -r dotenv/config ./app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
