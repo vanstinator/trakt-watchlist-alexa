@@ -2,9 +2,9 @@ import * as Alexa from 'ask-sdk';
 import { ExpressAdapter } from 'ask-sdk-express-adapter';
 import express from 'express';
 
-import AddItemToWatchlistIntentHandler from './src/handlers/AddItemToWatchlistIntentHandler';
-import LaunchRequestHandler from './src/handlers/LaunchRequestHandler';
-import LocalisationRequestInterceptor from './src/handlers/LocalisationRequestInterceptor';
+import AddItemToWatchlistIntentHandler from './src/alexa/handlers/AddItemToWatchlistIntentHandler';
+import LaunchRequestHandler from './src/alexa/handlers/LaunchRequestHandler';
+import LocalisationRequestInterceptor from './src/alexa/handlers/LocalisationRequestInterceptor';
 
 const port = process.env.PORT || 3000;
 

@@ -1,8 +1,8 @@
 import * as Alexa from 'ask-sdk';
 import { Response } from 'ask-sdk-model';
 
-import { STRINGS } from '../strings';
-import { HandlerInput } from '../types/alexa';
+import { STRINGS } from '../../strings';
+import { HandlerInput } from '../../types/alexa';
 
 export default {
 

@@ -20,3 +20,14 @@ export interface TraktMovieSearchResponse {
     }
   }
 }
+
+export interface TraktItem {
+  title: string,
+  year: number,
+  ids: {
+    trakt: number,
+    slug: string,
+    imdb: string,
+    tmdb: number
+  }
+}
