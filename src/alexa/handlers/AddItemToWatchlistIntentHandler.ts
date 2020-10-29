@@ -5,8 +5,11 @@ import match from '../../core/handlers/match';
 import { authenticatedClient } from '../../core/services/got';
 import { HandlerInput } from '../../core/types/alexa';
 import { TraktMovieSearchResponse } from '../../core/types/trakt';
+import logger from '../../core/utils/logger';
 import { STRINGS } from '../../strings';
 import { SLOTS } from '../constants/slots';
+
+const log = logger.category('ADD_ITEM_INTENT');
 
 export default {
 
@@ -25,14 +28,13 @@ export default {
 
     let mediaItem;
     if (movieSlot) {
-      console.log(movieSlot);
-      console.log(dateSlot);
-      console.log(timeSeriesSlot);
-      console.log(token);
+      log.debug(`itemSlot ${movieSlot}`);
+      log.debug(`dateSlot ${dateSlot}`);
+      log.debug(`timeSeriesSlot ${timeSeriesSlot}`);
 
       mediaItem = (await match(token, movieSlot, dateSlot, timeSeriesSlot)).item;
 
-      console.log(`Adding ${JSON.stringify(mediaItem, null, 2)} to watchlist`);
+      log.trace(`Adding ${JSON.stringify(mediaItem, null, 2)} to watchlist`);
 
       try {
         await authenticatedClient(token)('https://api.trakt.tv/sync/watchlist', {
@@ -43,7 +45,7 @@ export default {
         }).json<TraktMovieSearchResponse[]>();
 
       } catch (e) {
-        console.error(e);
+        log.error(e);
       }
     }
 
