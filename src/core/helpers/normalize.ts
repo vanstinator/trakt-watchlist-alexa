@@ -3,6 +3,7 @@ export default (input: string): string => {
   return input
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\W/, '')
+    .replace(/\W/g, '')
+    .replace(/a|an|the/g, '')
     .toLowerCase();
 };

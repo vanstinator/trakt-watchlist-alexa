@@ -13,11 +13,15 @@ export default async (conv: ConversationV3): Promise<ConversationV3> => {
 
   const t = await strings(conv.user.locale);
   const token = conv.user.params.bearerToken;
-  const movieParam = conv.intent.params['item'].original;
+  const movieParam = conv.intent.params['item']?.original;
+  const timeSeriesParam = conv.intent.params['timeSeries']?.original;
+  const year = conv.intent.params['number']?.original;
 
-  log.debug(`Movie Param: ${movieParam}`);
+  log.debug(`Item Title: ${movieParam}`);
+  log.debug(`Time Series: ${timeSeriesParam}`);
+  log.debug(`Year: ${year}`);
 
-  const mediaItem = await (await match(token, movieParam)).item;
+  const mediaItem = (await match(token, movieParam, year, timeSeriesParam)).item;
 
   if (mediaItem) {
     await addToWatchlist(token, mediaItem);

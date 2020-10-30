@@ -1,3 +1,4 @@
+import AmazonDateParser from 'amazon-date-parser';
 import * as Alexa from 'ask-sdk';
 import { Response } from 'ask-sdk-model';
 
@@ -31,7 +32,19 @@ export default {
       log.debug(`dateSlot ${dateSlot}`);
       log.debug(`timeSeriesSlot ${timeSeriesSlot}`);
 
-      mediaItem = (await match(token, movieSlot, dateSlot, timeSeriesSlot)).item;
+      let year;
+      if (dateSlot) {
+        const isYear = new RegExp(/^\d{4}$/).test(dateSlot);
+        if (isYear) {
+          year = dateSlot;
+        } else if (dateSlot) {
+          // First parse a useable date
+          const parsedDate: { startDate: Date, endDate: Date } = new AmazonDateParser(dateSlot);
+          year = parsedDate.startDate.getFullYear;
+        }
+      }
+
+      mediaItem = (await match(token, movieSlot, year, timeSeriesSlot)).item;
 
       log.trace(`Adding ${JSON.stringify(mediaItem, null, 2)} to watchlist`);
 
