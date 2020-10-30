@@ -1,4 +1,4 @@
-import { conversation, Image, Prompt } from '@assistant/conversation';
+import { conversation } from '@assistant/conversation';
 import * as Alexa from 'ask-sdk';
 import { ExpressAdapter } from 'ask-sdk-express-adapter';
 import bodyParser from 'body-parser';

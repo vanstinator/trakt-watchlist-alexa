@@ -1,6 +1,6 @@
 import AmazonDateParser from 'amazon-date-parser';
 
-import normalize from '../../helpers/normalize';
+import normalize from '../helpers/normalize';
 import { authenticatedClient } from '../services/got';
 import { Match, MatchConfidence } from '../types';
 import { TraktMovieSearchResponse } from '../types/trakt';

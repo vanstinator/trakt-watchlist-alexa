@@ -3,9 +3,9 @@ import { Response } from 'ask-sdk-model';
 
 import addToWatchlist from '../../core/handlers/addToWatchlist';
 import match from '../../core/handlers/match';
+import { STRINGS } from '../../core/strings';
 import { HandlerInput } from '../../core/types/alexa';
 import logger from '../../core/utils/logger';
-import { STRINGS } from '../../strings';
 import { SLOTS } from '../constants/slots';
 
 const log = logger.category('ALEXA_ADD_ITEM_HANDLER');

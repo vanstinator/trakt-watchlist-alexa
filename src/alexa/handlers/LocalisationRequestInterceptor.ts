@@ -1,8 +1,8 @@
 import * as Alexa from 'ask-sdk';
 import i18next, { StringMap, TOptions } from 'i18next';
 
+import languageStrings from '../../core/strings';
 import { HandlerInput } from '../../core/types/alexa';
-import languageStrings from '../../strings';
 
 // This request interceptor will bind a translation function 't' to the handlerInput
 export default {
