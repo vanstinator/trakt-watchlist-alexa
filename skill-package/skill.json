@@ -4,7 +4,7 @@
       "custom": {
         "endpoint": {
           "sslCertificateType": "Wildcard",
-          "uri": "https://trakt-watchlist-alexa.herokuapp.com/"
+          "uri": "https://trakt-watchlist-alexa.herokuapp.com/alexa"
         },
         "interfaces": []
       }
