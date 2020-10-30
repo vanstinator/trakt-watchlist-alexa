@@ -4,7 +4,7 @@
       "custom": {
         "endpoint": {
           "sslCertificateType": "Wildcard",
-          "uri": "https://vanderhooft.ngrok.io/"
+          "uri": "https://trakt-watchlist-alexa.herokuapp.com/"
         },
         "interfaces": []
       }

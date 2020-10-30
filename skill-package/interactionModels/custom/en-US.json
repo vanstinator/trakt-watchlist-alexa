@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "trakt watchlist",
+      "invocationName": "watch list",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -73,97 +73,99 @@
         {
           "values": [
             {
-              "id": "2020",
               "name": {
-                "value": "twenty twenties",
+                "value": "2020",
                 "synonyms": [
+                  "twenty twenties",
                   "two thousand twenties"
                 ]
               }
             },
             {
-              "id": "2010",
               "name": {
-                "value": "twenty tens",
+                "value": "2010",
                 "synonyms": [
+                  "twenty tens",
                   "two thousand tens"
                 ]
               }
             },
             {
-              "id": "2000",
               "name": {
-                "value": "two thousands"
+                "value": "2000",
+                "synonyms": [
+                  "two thousands"
+                ]
               }
             },
             {
-              "id": "1990",
               "name": {
-                "value": "nineties",
+                "value": "1990",
                 "synonyms": [
+                  "nineties",
                   "nineteen nineties "
                 ]
               }
             },
             {
-              "id": "1980",
               "name": {
-                "value": "eighties",
+                "value": "1980",
                 "synonyms": [
+                  "eighties",
                   "nineteen eighties"
                 ]
               }
             },
             {
-              "id": "1970",
               "name": {
-                "value": "seventies",
+                "value": "1970",
                 "synonyms": [
+                  "seventies",
                   "nineteen seventies"
                 ]
               }
             },
             {
-              "id": "1960",
               "name": {
-                "value": "sixties",
+                "value": "1960",
                 "synonyms": [
+                  "sixties",
                   "nineteen sixties"
                 ]
               }
             },
             {
-              "id": "1950",
               "name": {
-                "value": "fifties",
+                "value": "1950",
                 "synonyms": [
+                  "fifties",
                   "nineteen fifties"
                 ]
               }
             },
             {
-              "id": "1940",
               "name": {
-                "value": "forties",
+                "value": "1940",
                 "synonyms": [
+                  "forties",
                   "nineteen forties"
                 ]
               }
             },
             {
-              "id": "1930",
               "name": {
-                "value": "thirties",
+                "value": "1930",
                 "synonyms": [
+                  "thirties",
                   "nineteen thirties"
                 ]
               }
             },
             {
-              "id": "1920",
               "name": {
-                "value": "twenties",
+                "value": "1920",
                 "synonyms": [
+                  "twenties",
                   "nineteen twenties"
                 ]
               }
@@ -239,5 +241,5 @@
       }
     ]
   },
-  "version": "13"
+  "version": "23"
 }
