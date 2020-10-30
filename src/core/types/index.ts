@@ -1,5 +1,3 @@
-import { TraktMovieSearchResponse } from '../../types/trakt';
-
 import { TraktItem } from './trakt';
 
 export enum MatchConfidence {

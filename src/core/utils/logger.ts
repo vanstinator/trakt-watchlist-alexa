@@ -1,6 +1,6 @@
 import pino from 'pino';
 
-const rootLogger = pino({
+const logger = pino({
   level: process.env.LOG_LEVEL || 'trace',
   prettyPrint: {
     colorize: true,
@@ -11,8 +11,8 @@ const rootLogger = pino({
   }
 });
 
-rootLogger.category = (name: string) => {
-  return rootLogger.child({ module: `[${name}]` });
+logger.category = (name: string) => {
+  return logger.child({ module: `[${name}]` });
 };
 
-export default rootLogger;
+export default logger;

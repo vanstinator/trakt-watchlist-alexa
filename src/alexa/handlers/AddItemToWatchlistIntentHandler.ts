@@ -1,15 +1,14 @@
 import * as Alexa from 'ask-sdk';
 import { Response } from 'ask-sdk-model';
 
+import addToWatchlist from '../../core/handlers/addToWatchlist';
 import match from '../../core/handlers/match';
-import { authenticatedClient } from '../../core/services/got';
 import { HandlerInput } from '../../core/types/alexa';
-import { TraktMovieSearchResponse } from '../../core/types/trakt';
 import logger from '../../core/utils/logger';
 import { STRINGS } from '../../strings';
 import { SLOTS } from '../constants/slots';
 
-const log = logger.category('ADD_ITEM_INTENT');
+const log = logger.category('ALEXA_ADD_ITEM_HANDLER');
 
 export default {
 
@@ -36,17 +35,7 @@ export default {
 
       log.trace(`Adding ${JSON.stringify(mediaItem, null, 2)} to watchlist`);
 
-      try {
-        await authenticatedClient(token)('https://api.trakt.tv/sync/watchlist', {
-          body: JSON.stringify({
-            movies: [mediaItem]
-          }),
-          method: 'POST'
-        }).json<TraktMovieSearchResponse[]>();
-
-      } catch (e) {
-        log.error(e);
-      }
+      await addToWatchlist(token, mediaItem);
     }
 
     // TODO handle some sort of slot-less error state
